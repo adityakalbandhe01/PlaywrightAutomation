@@ -20,9 +20,9 @@ test.describe('OrangeHRM E2E Flow', () => {
     await page.locator('span:has-text("Admin")').click();
     await expect(page).toHaveURL(/admin/);
 
-    // 5️⃣ Search for a user
-    await page.locator('input[placeholder="Username"]').fill('Admin');
-    await page.locator('button:has-text("Search")').click();
+  // 5️⃣ Search for a user
+await page.getByLabel('Username').fill('Admin');
+await page.getByRole('button', { name: 'Search' }).click();
 
     // 6️⃣ Verify search result
     const records = page.locator('.oxd-table-card');
